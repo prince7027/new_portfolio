@@ -96,7 +96,7 @@
           <li class="contact-item">
 
             <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
+              <ion-icon name="code-slash-outline"></ion-icon>
             </div>
 
             <div class="contact-info">
@@ -460,7 +460,9 @@
 
         <!-- <section class="clients">
 
-          <h3 class="h3 clients-title">Clients</h3>
+
+
+          <h3 class="h3 clients-title">Certificates</h3>
 
           <ul class="clients-list has-scrollbar">
 
@@ -503,7 +505,149 @@
           </ul>
 
         </section> -->
+        <section class="certificates">
 
+          <div class="certificate-header">
+            <h3 class="h3 clients-title">Certificates</h3>
+            <!-- <a href="#" class="view-all">View All (20+)</a> -->
+          </div>
+
+          <ul class="certificate-list has-scrollbar">
+
+            <!-- Certificate 1 -->
+            <li class="certificate-card" data-title="AI & ML using Python"
+              data-org="ISRO – Indian Space Research Organization" data-date="20 January 2025"
+              data-id="ISRO/AI-ML/2025/10234" data-issued-to="Prince Garg" data-credential-url="#"
+              data-description="This course covered the fundamentals and advanced concepts of Artificial Intelligence and Machine Learning using Python. Topics included data preprocessing, ML algorithms, model evaluation, and real-world applications."
+              data-skills="Python,Machine Learning,Data Analysis,AI,Model Building,Data Visualization">
+
+              <img src="./assets/images/blog-5.jpg" alt="ISRO Certificate">
+
+              <div class="certificate-content">
+                <h4>AI & ML using Python</h4>
+                <p>ISRO</p>
+                <span>Issued: Jan 2025</span>
+                <button class="certificate-btn">View Credential</button>
+              </div>
+            </li>
+
+            <!-- Certificate 2 -->
+            <li class="certificate-card" data-title="Deep Learning Specialization" data-org="Coursera | Andrew Ng"
+              data-date="Dec 2024" data-id="COURSERA-2024-001" data-issued-to="Prince Garg" data-credential-url="#"
+              data-description="A comprehensive specialization covering neural networks, deep learning, CNNs, sequence models, and transformers taught by Andrew Ng."
+              data-skills="Deep Learning,CNN,RNN,Transformers,TensorFlow,Neural Networks">
+
+              <img src="./assets/images/blog-5.jpg" alt="Certificate">
+
+              <div class="certificate-content">
+                <h4>Deep Learning Specialization</h4>
+                <p>Coursera | Andrew Ng</p>
+                <span>Issued: Dec 2024</span>
+                <button class="certificate-btn">View Credential</button>
+              </div>
+            </li>
+
+            <!-- Certificate 3 -->
+            <li class="certificate-card" data-title="Machine Learning Specialization" data-org="Coursera"
+              data-date="Oct 2024" data-id="COURSERA-2024-002" data-issued-to="Prince Garg" data-credential-url="#"
+              data-description="Covers supervised learning, unsupervised learning, and reinforcement learning with hands-on labs and real-world case studies."
+              data-skills="Supervised Learning,Unsupervised Learning,Reinforcement Learning,Python,scikit-learn">
+
+              <img src="./assets/images/blog-5.jpg" alt="Certificate">
+
+              <div class="certificate-content">
+                <h4>Machine Learning Specialization</h4>
+                <p>Coursera</p>
+                <span>Issued: Oct 2024</span>
+                <button class="certificate-btn">View Credential</button>
+              </div>
+            </li>
+
+            <!-- Certificate 4 -->
+            <li class="certificate-card" data-title="Machine Learning Specialization" data-org="Coursera"
+              data-date="Oct 2024" data-id="COURSERA-2024-002" data-issued-to="Prince Garg" data-credential-url="#"
+              data-description="Covers supervised learning, unsupervised learning, and reinforcement learning with hands-on labs and real-world case studies."
+              data-skills="Supervised Learning,Unsupervised Learning,Reinforcement Learning,Python,scikit-learn">
+
+              <img src="./assets/images/blog-5.jpg" alt="Certificate">
+
+              <div class="certificate-content">
+                <h4>Machine Learning Specialization</h4>
+                <p>Coursera</p>
+                <span>Issued: Oct 2024</span>
+                <button class="certificate-btn">View Credential</button>
+              </div>
+            </li>
+
+            <!-- Certificate 5 -->
+            <li class="certificate-card" data-title="Machine Learning Specialization" data-org="Coursera"
+              data-date="Oct 2024" data-id="COURSERA-2024-002" data-issued-to="Prince Garg" data-credential-url="#"
+              data-description="Covers supervised learning, unsupervised learning, and reinforcement learning with hands-on labs and real-world case studies."
+              data-skills="Supervised Learning,Unsupervised Learning,Reinforcement Learning,Python,scikit-learn">
+
+              <img src="./assets/images/blog-5.jpg" alt="Certificate">
+
+              <div class="certificate-content">
+                <h4>Machine Learning Specialization</h4>
+                <p>Coursera</p>
+                <span>Issued: Oct 2024</span>
+                <button class="certificate-btn">View Credential</button>
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+        <!-- Certificate Detail Panel -->
+        <div class="cert-panel-overlay" id="certPanelOverlay">
+          <div class="cert-panel" id="certPanel">
+            <button class="cert-panel-close" id="certPanelClose" aria-label="Close panel">&times;</button>
+            <div class="cert-panel-inner">
+
+              <img id="cpImage" class="cert-panel-img" src="" alt="Certificate" />
+
+              <div class="cert-verified">Verified</div>
+
+              <h2 class="cert-panel-title" id="cpTitle"></h2>
+              <p class="cert-panel-org" id="cpOrg"></p>
+
+              <table class="cert-meta">
+                <tr>
+                  <td class="meta-label"><span class="meta-icon">👤</span> Issued To</td>
+                  <td class="meta-value" id="cpIssuedTo"></td>
+                </tr>
+                <tr>
+                  <td class="meta-label"><span class="meta-icon">📅</span> Issue Date</td>
+                  <td class="meta-value" id="cpDate"></td>
+                </tr>
+                <tr>
+                  <td class="meta-label"><span class="meta-icon">🔖</span> Credential ID</td>
+                  <td class="meta-value" id="cpId"></td>
+                </tr>
+                <tr>
+                  <td class="meta-label"><span class="meta-icon">🔗</span> Credential URL</td>
+                  <td class="meta-value">
+                    <a href="#" id="cpUrl" target="_blank" rel="noopener">View Credential</a>
+                  </td>
+                </tr>
+              </table>
+
+              <div class="cert-divider"></div>
+
+              <p class="cert-section-title">About This Certificate</p>
+              <p class="cert-description" id="cpDescription"></p>
+
+              <p class="cert-section-title">Skills Gained</p>
+              <div class="cert-skills" id="cpSkills"></div>
+
+              <a href="#" id="cpDownload" class="cert-download-btn" target="_blank" rel="noopener">
+                📥 Download Certificate
+              </a>
+
+            </div>
+          </div>
+        </div>
       </article>
 
 

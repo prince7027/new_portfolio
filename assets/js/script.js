@@ -157,3 +157,76 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// ===== CERTIFICATE PANEL =====
+// Slide-in panel from right, main content shifts left
+// ===== CERTIFICATE PANEL =====
+// Panel HTML must exist in index.html (see below).
+// All card data comes from data-* attributes on .certificate-card elements.
+
+(function () {
+
+  const overlay = document.getElementById("certPanelOverlay");
+  const panel = document.getElementById("certPanel");
+  const closeBtn = document.getElementById("certPanelClose");
+
+  const mainContent = document.querySelector("main") ||
+    document.querySelector(".main-content") ||
+    document.querySelector("article") ||
+    document.querySelector(".right-content");
+
+  let activeCard = null;
+
+  function openPanel(card) {
+    const d = card.dataset;
+
+    document.getElementById("cpImage").src = card.querySelector("img")?.src || "";
+    document.getElementById("cpTitle").textContent = d.title || "";
+    document.getElementById("cpOrg").textContent = d.org || "";
+    document.getElementById("cpDate").textContent = d.date || "";
+    document.getElementById("cpId").textContent = d.id || "";
+    document.getElementById("cpIssuedTo").textContent = d.issuedTo || "—";
+    document.getElementById("cpDescription").textContent = d.description || "";
+
+    const credUrl = d.credentialUrl || "#";
+    document.getElementById("cpUrl").href = credUrl;
+    document.getElementById("cpDownload").href = credUrl;
+
+    const skillsEl = document.getElementById("cpSkills");
+    skillsEl.innerHTML = "";
+    (d.skills ? d.skills.split(",").map(s => s.trim()).filter(Boolean) : [])
+      .forEach(skill => {
+        const tag = document.createElement("span");
+        tag.className = "cert-skill-tag";
+        tag.textContent = skill;
+        skillsEl.appendChild(tag);
+      });
+
+    if (activeCard) activeCard.classList.remove("active");
+    card.classList.add("active");
+    activeCard = card;
+
+    panel.classList.add("open");
+    overlay.classList.add("open");
+    if (mainContent) mainContent.classList.add("panel-open");
+    panel.scrollTop = 0;
+  }
+
+  function closePanel() {
+    panel.classList.remove("open");
+    overlay.classList.remove("open");
+    if (mainContent) mainContent.classList.remove("panel-open");
+    if (activeCard) { activeCard.classList.remove("active"); activeCard = null; }
+  }
+
+  document.querySelectorAll(".certificate-card").forEach(card => {
+    card.addEventListener("click", () => {
+      (card === activeCard && panel.classList.contains("open")) ? closePanel() : openPanel(card);
+    });
+  });
+
+  closeBtn.addEventListener("click", closePanel);
+  overlay.addEventListener("click", e => { if (e.target === overlay) closePanel(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closePanel(); });
+
+})();
