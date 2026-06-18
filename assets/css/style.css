@@ -1,6 +1,303 @@
 /*-----------------------------------*\
   #style.css
 \*-----------------------------------*/
+
+/* =========================================================================
+     PROJECTS & RESEARCH WORK SECTION
+     ========================================================================= */
+
+.projects-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.projects-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffb100;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: gap 0.25s ease;
+}
+
+.projects-link:hover {
+  gap: 10px;
+}
+
+.projects-link ion-icon {
+  font-size: 14px;
+}
+
+/* Horizontal Slider Track - Matches .certificate-list / .has-scrollbar layout exactly */
+.projects-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 25px;
+}
+
+/* Sizing structure matching Certificates layout */
+.projects-item {
+  min-width: 100%;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 575px) {
+  .projects-item {
+    min-width: calc(50% - 10px);
+  }
+}
+
+@media (min-width: 950px) {
+  .projects-item {
+    min-width: calc(33.33% - 13.33px);
+  }
+}
+
+/* Compact Card Styling */
+.project-card {
+  background: #1c1c22;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  background: #22222a;
+  border-color: rgba(255, 177, 0, 0.25);
+}
+
+.project-thumb {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.project-thumb ion-icon {
+  font-size: 38px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.project-thumb--blue {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+}
+
+.project-thumb--purple {
+  background: linear-gradient(135deg, #3b0764, #7c3aed);
+}
+
+.project-thumb--teal {
+  background: linear-gradient(135deg, #064e3b, #14b8a6);
+}
+
+.project-thumb--indigo {
+  background: linear-gradient(135deg, #1e1b4b, #4338ca);
+}
+
+.project-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-item-title {
+  color: #ededf0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* ===== PROJECT TAG VIBRANT COLOR SYSTEM FIXED ===== */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+/* Explicit colors to match the reference mockup precisely */
+.tag-purple {
+  background: rgba(168, 85, 247, 0.15) !important;
+  color: #c084fc !important;
+}
+
+.tag-pink {
+  background: rgba(236, 72, 153, 0.15) !important;
+  color: #f472b6 !important;
+}
+
+.tag-green {
+  background: rgba(34, 197, 94, 0.15) !important;
+  color: #4ade80 !important;
+}
+
+.tag-blue {
+  background: rgba(59, 130, 246, 0.15) !important;
+  color: #60a5fa !important;
+}
+
+.tag-teal {
+  background: rgba(20, 184, 166, 0.15) !important;
+  color: #2dd4bf !important;
+}
+
+.tag-indigo {
+  background: rgba(99, 102, 241, 0.15) !important;
+  color: #818cf8;
+}
+
+.project-text {
+  color: #a6a6ad;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.project-buttons {
+  display: flex;
+  flex-direction: column;
+  /* Stack buttons vertically on mobile */
+  gap: 8px;
+  margin-top: auto;
+}
+
+/* Back to horizontal buttons on tablet/desktop */
+@media (min-width: 575px) {
+  .project-buttons {
+    flex-direction: row;
+  }
+}
+
+.btn-outline,
+.btn-fill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #ededf0;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.btn-fill {
+  border: 1px solid #ffb100;
+  color: #ffb100;
+  background: transparent;
+}
+
+.btn-fill:hover {
+  background: #ffb100;
+  color: #131316;
+}
+
+.btn-outline ion-icon,
+.btn-fill ion-icon {
+  font-size: 13px;
+}
+
+/* =========================================================================
+     PROJECT DETAILS MODAL WINDOW STYLES
+     ========================================================================= */
+
+.projects-modal {
+  background: #1c1c22;
+  border-radius: 18px;
+  padding: 28px;
+  max-width: 480px;
+  position: relative;
+}
+
+.modal-thumb-box {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #3b0764, #7c3aed);
+  margin-bottom: 16px;
+}
+
+.modal-thumb-box ion-icon {
+  font-size: 30px;
+  color: #fff;
+}
+
+.modal-title {
+  color: #ededf0;
+  margin-bottom: 12px;
+}
+
+.modal-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-date-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #a6a6ad;
+  font-size: 0.85rem;
+}
+
+.modal-date-item ion-icon {
+  font-size: 16px;
+  color: #ffb100;
+}
+
+.modal-date-item time {
+  color: #ededf0;
+  font-weight: 500;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+
 /* ===== CERTIFICATE SECTION ===== */
 
 .certificate-header {
@@ -1343,8 +1640,12 @@ main {
   margin-bottom: 10px;
 }
 
-.project-item {
-  display: none;
+/* Base Sizing Structure for Slider Cards on Mobile - Perfectly mirrors Certificates */
+.projects-item {
+  min-width: 220px;
+  max-width: 220px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
 }
 
 .project-item.active {
@@ -1966,293 +2267,6 @@ textarea.form-input::-webkit-resizer {
     flex-grow: 1;
     width: 35px;
   }
-
-  /* =========================================================================
-     PROJECTS & RESEARCH WORK SECTION
-     ========================================================================= */
-
-  .projects-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  .projects-link {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #ffb100;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: gap 0.25s ease;
-  }
-
-  .projects-link:hover {
-    gap: 10px;
-  }
-
-  .projects-link ion-icon {
-    font-size: 14px;
-  }
-
-  /* Horizontal Slider Track - Matches .certificate-list / .has-scrollbar layout exactly */
-  .projects-list {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 25px;
-  }
-
-  /* Sizing structure matching Certificates layout */
-  .projects-item {
-    min-width: 100%;
-    width: 100%;
-    scroll-snap-align: start;
-  }
-
-  @media (min-width: 575px) {
-    .projects-item {
-      min-width: calc(50% - 10px);
-    }
-  }
-
-  @media (min-width: 950px) {
-    .projects-item {
-      min-width: calc(33.33% - 13.33px);
-    }
-  }
-
-  /* Compact Card Styling */
-  .project-card {
-    background: #1c1c22;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    overflow: hidden;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-  }
-
-  .project-card:hover {
-    transform: translateY(-4px);
-    background: #22222a;
-    border-color: rgba(255, 177, 0, 0.25);
-  }
-
-  .project-thumb {
-    height: 130px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-  }
-
-  .project-thumb ion-icon {
-    font-size: 38px;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .project-thumb--blue {
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-  }
-
-  .project-thumb--purple {
-    background: linear-gradient(135deg, #3b0764, #7c3aed);
-  }
-
-  .project-thumb--teal {
-    background: linear-gradient(135deg, #064e3b, #14b8a6);
-  }
-
-  .project-thumb--indigo {
-    background: linear-gradient(135deg, #1e1b4b, #4338ca);
-  }
-
-  .project-content {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .project-item-title {
-    color: #ededf0;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-
-  /* ===== PROJECT TAG VIBRANT COLOR SYSTEM FIXED ===== */
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 12px;
-  }
-
-  .tag {
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 12px;
-    font-size: 0.65rem;
-    font-weight: 600;
-  }
-
-  /* Explicit colors to match the reference mockup precisely */
-  .tag-purple {
-    background: rgba(168, 85, 247, 0.15) !important;
-    color: #c084fc !important;
-  }
-
-  .tag-pink {
-    background: rgba(236, 72, 153, 0.15) !important;
-    color: #f472b6 !important;
-  }
-
-  .tag-green {
-    background: rgba(34, 197, 94, 0.15) !important;
-    color: #4ade80 !important;
-  }
-
-  .tag-blue {
-    background: rgba(59, 130, 246, 0.15) !important;
-    color: #60a5fa !important;
-  }
-
-  .tag-teal {
-    background: rgba(20, 184, 166, 0.15) !important;
-    color: #2dd4bf !important;
-  }
-
-  .tag-indigo {
-    background: rgba(99, 102, 241, 0.15) !important;
-    color: #818cf8;
-  }
-
-  .project-text {
-    color: #a6a6ad;
-    font-size: 0.78rem;
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-
-  .project-buttons {
-    display: flex;
-    gap: 8px;
-    margin-top: auto;
-  }
-
-  .btn-outline,
-  .btn-fill {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    flex: 1;
-    padding: 8px 10px;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-  }
-
-  .btn-outline {
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #ededf0;
-    background: transparent;
-  }
-
-  .btn-outline:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.04);
-  }
-
-  .btn-fill {
-    border: 1px solid #ffb100;
-    color: #ffb100;
-    background: transparent;
-  }
-
-  .btn-fill:hover {
-    background: #ffb100;
-    color: #131316;
-  }
-
-  .btn-outline ion-icon,
-  .btn-fill ion-icon {
-    font-size: 13px;
-  }
-
-  /* =========================================================================
-     PROJECT DETAILS MODAL WINDOW STYLES
-     ========================================================================= */
-
-  .projects-modal {
-    background: #1c1c22;
-    border-radius: 18px;
-    padding: 28px;
-    max-width: 480px;
-    position: relative;
-  }
-
-  .modal-thumb-box {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #3b0764, #7c3aed);
-    margin-bottom: 16px;
-  }
-
-  .modal-thumb-box ion-icon {
-    font-size: 30px;
-    color: #fff;
-  }
-
-  .modal-title {
-    color: #ededf0;
-    margin-bottom: 12px;
-  }
-
-  .modal-dates {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .modal-date-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #a6a6ad;
-    font-size: 0.85rem;
-  }
-
-  .modal-date-item ion-icon {
-    font-size: 16px;
-    color: #ffb100;
-  }
-
-  .modal-date-item time {
-    color: #ededf0;
-    font-weight: 500;
-  }
-
-  .modal-buttons {
-    display: flex;
-    gap: 10px;
-    margin-top: 18px;
-  }
-
 
   /**
    * #RESUME
