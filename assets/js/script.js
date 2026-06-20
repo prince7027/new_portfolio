@@ -94,7 +94,6 @@ for (let i = 0; i < navigationLinks.length; i++) {
     }
   });
 }
-
 /* ===== CERTIFICATE PANEL SYSTEM ===== */
 (function () {
   const overlay = document.getElementById("certPanelOverlay");
@@ -147,6 +146,9 @@ for (let i = 0; i < navigationLinks.length; i++) {
     if (overlay) overlay.classList.add("open");
     if (mainContent) mainContent.classList.add("panel-open");
     if (panel) panel.scrollTop = 0;
+
+    // Push a history state so mobile back button closes the panel
+    history.pushState({ certPanelOpen: true }, "");
   }
 
   function closePanel() {
@@ -156,15 +158,35 @@ for (let i = 0; i < navigationLinks.length; i++) {
     if (activeCard) { activeCard.classList.remove("active"); activeCard = null; }
   }
 
+  function closePanelAndHistory() {
+    // If panel is open and we're closing via button/overlay, pop the history state
+    if (panel && panel.classList.contains("open")) {
+      history.back(); // this triggers popstate which calls closePanel
+    }
+  }
+
+  // Mobile back button — popstate fires when user goes back
+  window.addEventListener("popstate", (e) => {
+    if (panel && panel.classList.contains("open")) {
+      closePanel();
+    }
+  });
+
   document.querySelectorAll(".certificate-card").forEach(card => {
     card.addEventListener("click", () => {
-      (card === activeCard && panel && panel.classList.contains("open")) ? closePanel() : openPanel(card);
+      (card === activeCard && panel && panel.classList.contains("open"))
+        ? closePanelAndHistory()
+        : openPanel(card);
     });
   });
 
-  if (closeBtn) closeBtn.addEventListener("click", closePanel);
-  if (overlay) overlay.addEventListener("click", e => { if (e.target === overlay) closePanel(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") closePanel(); });
+  if (closeBtn) closeBtn.addEventListener("click", closePanelAndHistory);
+  if (overlay) overlay.addEventListener("click", e => {
+    if (e.target === overlay) closePanelAndHistory();
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closePanelAndHistory();
+  });
 })();
 
 /* ===== PROJECTS TRACK INTERACTION & MODAL HANDLERS ===== */
