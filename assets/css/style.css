@@ -474,7 +474,7 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
   border: none;
-  color: #fff;
+  color: #a4a2a2;
   font-size: 18px;
   cursor: pointer;
   display: flex;
@@ -485,7 +485,7 @@
 }
 
 .cert-panel-close:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(190, 189, 189, 0.16);
 }
 
 /* Certificate image in panel */

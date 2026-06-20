@@ -106,6 +106,7 @@ for (let i = 0; i < navigationLinks.length; i++) {
     document.querySelector(".right-content");
 
   let activeCard = null;
+  let panelOpenedByUs = false; // flag to track if WE pushed a state
 
   function openPanel(card) {
     const d = card.dataset;
@@ -147,8 +148,11 @@ for (let i = 0; i < navigationLinks.length; i++) {
     if (mainContent) mainContent.classList.add("panel-open");
     if (panel) panel.scrollTop = 0;
 
-    // Push a history state so mobile back button closes the panel
-    history.pushState({ certPanelOpen: true }, "");
+    // Push state ONLY if panel isn't already tracked in history
+    if (!panelOpenedByUs) {
+      history.pushState({ certPanel: true }, "");
+      panelOpenedByUs = true;
+    }
   }
 
   function closePanel() {
@@ -156,36 +160,41 @@ for (let i = 0; i < navigationLinks.length; i++) {
     if (overlay) overlay.classList.remove("open");
     if (mainContent) mainContent.classList.remove("panel-open");
     if (activeCard) { activeCard.classList.remove("active"); activeCard = null; }
+    panelOpenedByUs = false;
   }
 
-  function closePanelAndHistory() {
-    // If panel is open and we're closing via button/overlay, pop the history state
-    if (panel && panel.classList.contains("open")) {
-      history.back(); // this triggers popstate which calls closePanel
-    }
-  }
-
-  // Mobile back button — popstate fires when user goes back
-  window.addEventListener("popstate", (e) => {
-    if (panel && panel.classList.contains("open")) {
+  // Mobile back button triggers this
+  window.addEventListener("popstate", () => {
+    if (panelOpenedByUs) {
       closePanel();
     }
   });
 
+  // Close button / overlay — manually go back in history to clean up the pushed state
+  function manualClose() {
+    if (panelOpenedByUs) {
+      history.back(); // triggers popstate → closePanel()
+    } else {
+      closePanel();
+    }
+  }
+
   document.querySelectorAll(".certificate-card").forEach(card => {
     card.addEventListener("click", () => {
-      (card === activeCard && panel && panel.classList.contains("open"))
-        ? closePanelAndHistory()
-        : openPanel(card);
+      if (card === activeCard && panel && panel.classList.contains("open")) {
+        manualClose();
+      } else {
+        openPanel(card);
+      }
     });
   });
 
-  if (closeBtn) closeBtn.addEventListener("click", closePanelAndHistory);
+  if (closeBtn) closeBtn.addEventListener("click", manualClose);
   if (overlay) overlay.addEventListener("click", e => {
-    if (e.target === overlay) closePanelAndHistory();
+    if (e.target === overlay) manualClose();
   });
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape") closePanelAndHistory();
+    if (e.key === "Escape") manualClose();
   });
 })();
 
