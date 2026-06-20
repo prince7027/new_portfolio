@@ -1,6 +1,14 @@
 /*-----------------------------------*\
   #style.css
 \*-----------------------------------*/
+.hello-avatar-bg {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* =========================================================================
      PROJECTS & RESEARCH WORK SECTION
@@ -1848,11 +1856,6 @@ main {
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
-
-
-
-
-
 
 
 /*-----------------------------------*\
