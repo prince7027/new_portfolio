@@ -233,9 +233,87 @@ function initCertificatePanel() {
 document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   renderCertificates();
+  renderExperience(); // Added line
+  renderSkills();
 
   initSidebar();
   initPageNav();
   initConstructionNotice();
   initCertificatePanel();
 });
+/* =========================================================================
+   FACTORY: Experience Card
+   ========================================================================= */
+function createExperienceCard(exp) {
+  const li = document.createElement("li");
+  li.className = "experience-item";
+
+  const bulletsHTML = exp.bullets.map(bullet => `<li>${bullet}</li>`).join("");
+  const currentBadge = exp.isCurrent ? `<span class="current-badge">Current</span>` : "";
+
+  li.innerHTML = `
+    <div class="exp-icon-box">
+      <ion-icon name="calendar-outline"></ion-icon>
+    </div>
+    <div class="exp-content">
+      <h4 class="exp-role">${exp.role}</h4>
+      <p class="exp-company">${exp.company}</p>
+      <div class="exp-meta">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <time>${exp.date}</time>
+        ${currentBadge}
+      </div>
+      <ul class="exp-bullets">
+        ${bulletsHTML}
+      </ul>
+      <div class="exp-buttons">
+        <a href="${exp.certLink}" class="btn-outline-yellow" target="_blank">
+          <ion-icon name="document-text-outline"></ion-icon> View Certificate
+        </a>
+        <a href="${exp.companyLink}" class="btn-outline-purple" target="_blank">
+          Company Website <ion-icon name="open-outline"></ion-icon>
+        </a>
+      </div>
+    </div>
+  `;
+  return li;
+}
+
+/* =========================================================================
+   FACTORY: Skill Category
+   ========================================================================= */
+function createSkillCategory(skillCat) {
+  const div = document.createElement("div");
+  div.className = "skill-category";
+
+  const tagsHTML = skillCat.items
+    .map(item => `<span class="skill-tag ${item.color}">${item.name}</span>`)
+    .join("");
+
+  div.innerHTML = `
+    <h5 class="skill-category-title">${skillCat.category}</h5>
+    <div class="skill-tags">${tagsHTML}</div>
+  `;
+  return div;
+}
+
+/* =========================================================================
+   RENDER: Experience & Skills
+   ========================================================================= */
+function renderExperience() {
+  const list = document.querySelector("[data-experience-list]");
+  if (!list) return;
+  const fragment = document.createDocumentFragment();
+  experienceData.forEach(exp => fragment.appendChild(createExperienceCard(exp)));
+  list.innerHTML = "";
+  list.appendChild(fragment);
+}
+
+function renderSkills() {
+  const list = document.querySelector("[data-skills-list]");
+  if (!list) return;
+  const fragment = document.createDocumentFragment();
+  skillsData.forEach(cat => fragment.appendChild(createSkillCategory(cat)));
+  list.innerHTML = "";
+  list.appendChild(fragment);
+}

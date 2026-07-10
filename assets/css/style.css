@@ -1575,14 +1575,283 @@ main {
     justify-content: center;
   }
 
-  .contact-quote {
-    color: var(--white-1);
-    font-size: var(--fs-6);
-    font-weight: var(--fw-300);
-    font-style: italic;
-    text-align: center;
-    line-height: 1.6;
-    max-width: 420px;
-    margin: 24px auto 10px;
+  /* =========================================================================
+   EXPERIENCE & SKILLS SECTION (COMPACT VERSION)
+   ========================================================================= */
+
+  /* =========================================================================
+     EXPERIENCE & SKILLS SECTION (MOBILE BULLETPROOF)
+     ========================================================================= */
+
+  .experience-skills-section {
+    display: flex;
+    flex-direction: column;
+    /* Forces vertical stacking on mobile */
+    gap: 15px;
+    margin-bottom: 35px;
+    width: 100%;
+  }
+
+  @media (min-width: 950px) {
+    .experience-skills-section {
+      flex-direction: row;
+      /* Puts them side-by-side on desktop */
+    }
+
+    .exp-skills-box {
+      flex: 1;
+      /* Ensures both boxes take up exactly 50% width */
+    }
+  }
+
+  /* Keep the rest of your .exp-skills-box and other classes below exactly the same */
+
+  .exp-skills-box {
+    background: var(--eerie-black-2);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 18px;
+    height: 100%;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .header-icon {
+    color: var(--orange-yellow-crayola);
+    font-size: 18px;
+  }
+
+  .mb-0 {
+    margin-bottom: 0 !important;
+  }
+
+  /* --- Timeline Experience --- */
+
+  .experience-list {
+    position: relative;
+    margin-left: 4px;
+    padding-left: 18px;
+  }
+
+  .experience-list::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 2px;
+    height: calc(100% - 6px);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .experience-list::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -4px;
+    width: 10px;
+    height: 10px;
+    background: #a855f7;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--eerie-black-2);
+  }
+
+  .experience-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .experience-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .exp-icon-box {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c084fc;
+    font-size: 18px;
+  }
+
+  .exp-role {
+    color: #ededf0;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .exp-company {
+    color: #c084fc;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .exp-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+    color: #a6a6ad;
+    font-size: 11px;
+  }
+
+  .current-badge {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 9px;
+    font-weight: 600;
+  }
+
+  .exp-bullets {
+    list-style-type: disc;
+    margin-left: 14px;
+    color: #a6a6ad;
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+
+  .exp-bullets li {
+    margin-bottom: 5px;
+  }
+
+  .exp-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .btn-outline-yellow,
+  .btn-outline-purple {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    background: transparent;
+    transition: all 0.25s ease;
+  }
+
+  .btn-outline-yellow {
+    border: 1px solid rgba(255, 177, 0, 0.3);
+    color: #ffb100;
+  }
+
+  .btn-outline-yellow:hover {
+    background: rgba(255, 177, 0, 0.1);
+    border-color: rgba(255, 177, 0, 0.6);
+  }
+
+  .btn-outline-purple {
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    color: #c084fc;
+  }
+
+  .btn-outline-purple:hover {
+    background: rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.6);
+  }
+
+  /* --- Skills Stack --- */
+
+  .skill-category {
+    margin-bottom: 16px;
+  }
+
+  .skill-category:last-child {
+    margin-bottom: 0;
+  }
+
+  .skill-category-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #ededf0;
+    margin-bottom: 4px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+  }
+
+  /* Tag Color Variants */
+  .skill-tag.blue {
+    color: #60a5fa;
+    border-color: rgba(96, 165, 250, 0.25);
+    background: rgba(96, 165, 250, 0.05);
+  }
+
+  .skill-tag.red {
+    color: #f87171;
+    border-color: rgba(248, 113, 113, 0.25);
+    background: rgba(248, 113, 113, 0.05);
+  }
+
+  .skill-tag.yellow {
+    color: #fbbf24;
+    border-color: rgba(251, 191, 36, 0.25);
+    background: rgba(251, 191, 36, 0.05);
+  }
+
+  .skill-tag.green {
+    color: #4ade80;
+    border-color: rgba(74, 222, 128, 0.25);
+    background: rgba(74, 222, 128, 0.05);
+  }
+
+  .skill-tag.orange {
+    color: #fb923c;
+    border-color: rgba(251, 146, 60, 0.25);
+    background: rgba(251, 146, 60, 0.05);
+  }
+
+  .skill-tag.purple {
+    color: #c084fc;
+    border-color: rgba(192, 132, 252, 0.25);
+    background: rgba(192, 132, 252, 0.05);
+  }
+
+  .skill-tag.teal {
+    color: #2dd4bf;
+    border-color: rgba(45, 212, 191, 0.25);
+    background: rgba(45, 212, 191, 0.05);
+  }
+
+  .skill-tag.gray {
+    color: #a1a1aa;
+    border-color: rgba(161, 161, 170, 0.25);
+    background: rgba(161, 161, 170, 0.05);
+  }
+
+  .skill-tag.indigo {
+    color: #818cf8;
+    border-color: rgba(129, 140, 248, 0.25);
+    background: rgba(129, 140, 248, 0.05);
   }
 }

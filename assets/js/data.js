@@ -185,3 +185,70 @@ const certificatesData = [
         image: "./assets/images/udemy.png"
     }
 ];
+const experienceData = [
+    {
+        role: "ML Engineer Intern",
+        company: "Times Network",
+        date: "April 2025 – August 2025",
+        isCurrent: 0,
+        bullets: [
+            "Developed scalable AI solutions using Python and Java.",
+            "Built REST APIs using Spring Boot and Flask.",
+            "Worked with MongoDB for high-performance data retrieval.",
+            "Developed News Intelligence APIs for multilingual news processing.",
+            "Improved backend performance and optimized database queries.",
+            "Collaborated on debugging and deploying production-ready systems."
+        ],
+        certLink: "https://drive.google.com/file/d/14yQRqn3L5WUDtEe5HhZ2WVQQWmbEaSnc/view?usp=drive_link",
+        companyLink: "#"
+    }
+];
+
+const skillsData = [
+    {
+        category: "Languages",
+        items: [
+            { name: "Python", color: "blue" },
+            { name: "Java", color: "red" },
+            { name: "C++", color: "indigo" },
+            { name: "SQL", color: "yellow" }
+        ]
+    },
+    {
+        category: "AI/ML",
+        items: [
+            { name: "Scikit-learn", color: "green" },
+            { name: "TensorFlow", color: "orange" },
+            { name: "PyTorch", color: "red" },
+            { name: "Pandas", color: "blue" },
+            { name: "NumPy", color: "indigo" }
+        ]
+    },
+    {
+        category: "Backend",
+        items: [
+            { name: "Spring Boot", color: "green" },
+            { name: "Flask", color: "blue" },
+            { name: "FastAPI", color: "teal" },
+            { name: "REST API", color: "purple" }
+        ]
+    },
+    {
+        category: "Database",
+        items: [
+            { name: "MongoDB", color: "green" },
+            { name: "MySQL", color: "blue" }
+        ]
+    },
+    {
+        category: "Tools",
+        items: [
+            { name: "Git", color: "red" },
+            { name: "GitHub", color: "gray" },
+            { name: "VS Code", color: "blue" },
+            { name: "Postman", color: "orange" },
+            { name: "Docker", color: "blue" }
+            // { name: "Linux", color: "gray" }
+        ]
+    }
+];
