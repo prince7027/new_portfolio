@@ -143,12 +143,11 @@
         </header>
 
         <section class="about-text">
-          <p>I'm a Software Developer specialized in Machine Learning and Deep Learning, dedicated to building
-            scalable
-            applications and intelligent systems.
-          </p>
           <p>
-
+            I'm a Software Developer specialized in Machine Learning and Deep Learning, dedicated to building scalable
+            applications
+            and intelligent systems.</p>
+          <p>
 
             My expertise lies at the intersection of heavy-duty engineering and modern AI. Whether I'm architecting
             reliable backend
@@ -160,84 +159,34 @@
           </p>
         </section>
 
-        <!-- service -->
-        <!-- <section class="service">
-          <h3 class="h3 service-title">What i'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg" alt="design icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web design</h4>
-                <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web development</h4>
-                <p class="service-item-text">
-                  High-quality development of sites at the professional level.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile apps</h4>
-                <p class="service-item-text">
-                  Professional development of applications for iOS and Android.
-                </p>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
-                <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-        </section> -->
-        <!-- Professional Experience & Skills -->
+        <!-- Professional Experience & Skills — rendered by createExperienceCard() / createSkillCategory() in script.js -->
         <section class="experience-skills-section">
 
-          <!-- Experience Box -->
+          <!-- Experience -->
           <div class="exp-skills-box">
             <div class="section-header">
-              <ion-icon name="briefcase-outline" class="header-icon"></ion-icon>
-              <h3 class="h3 section-title mb-0">Professional Experience</h3>
+              <div class="icon-box">
+                <ion-icon name="briefcase-outline"></ion-icon>
+              </div>
+              <h3 class="h3 section-title">Professional Experience</h3>
             </div>
+
             <ul class="experience-list" data-experience-list>
-              <!-- experience cards injected here at runtime -->
+              <!-- experience cards injected here at runtime, sourced from experienceData in data.js -->
             </ul>
           </div>
 
-          <!-- Skills Box -->
+          <!-- Skills -->
           <div class="exp-skills-box">
             <div class="section-header">
-              <ion-icon name="code-slash-outline" class="header-icon"></ion-icon>
-              <h3 class="h3 section-title mb-0">Skills & Tech Stack</h3>
+              <div class="icon-box">
+                <ion-icon name="code-slash-outline"></ion-icon>
+              </div>
+              <h3 class="h3 section-title">Skills & Tech Stack</h3>
             </div>
+
             <div class="skills-list" data-skills-list>
-              <!-- skill categories injected here at runtime -->
+              <!-- skill categories injected here at runtime, sourced from skillsData in data.js -->
             </div>
           </div>
 
@@ -245,7 +194,10 @@
 
         <!-- Projects & Research Work — rendered by createProjectCard() in script.js -->
         <section class="projects-section">
-          <div class="projects-header">
+          <div class="section-header">
+            <div class="icon-box">
+              <ion-icon name="star-outline"></ion-icon>
+            </div>
             <h3 class="h3 section-title">Projects & Research Work</h3>
           </div>
 
@@ -256,7 +208,10 @@
 
         <!-- Certifications & Badges — rendered by createCertificateCard() in script.js -->
         <section class="certificates">
-          <div class="certificate-header">
+          <div class="section-header">
+            <div class="icon-box">
+              <ion-icon name="ribbon-outline"></ion-icon>
+            </div>
             <h3 class="h3 section-title">Certifications & Badges</h3>
           </div>
 
@@ -311,7 +266,6 @@
                 <span>&#x2714; Verify Certificate</span>
               </a>
 
-
             </div>
           </div>
         </div>
@@ -347,7 +301,8 @@
           </a>
         </section>
 
-        <!-- <p class="contact-quote">" Every technology or challenge may be new today, but it will be second nature tomorrow. "</p> -->
+        <p class="contact-quote">"Every technology or challenge may be new today, but it will be second nature
+          tomorrow."</p>
 
       </article>
 
