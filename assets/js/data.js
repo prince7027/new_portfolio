@@ -15,19 +15,15 @@ const experienceData = [
         date: "April 2025 – August 2025",
         isCurrent: false,
         bullets: [
-            "Developed scalable AI solutions using Python and Java.",
-            "Built REST APIs using Spring Boot and Flask.",
-            "Worked with MongoDB for high-performance data retrieval.",
-            "Developed News Intelligence APIs for multilingual news processing.",
-            "Improved backend performance and optimized database queries.",
-            "Collaborated on debugging and deploying production-ready systems."
+            "Developed multilingual News Intelligence APIs using Python, FastAPI, and Java for AI-powered content processing.",
+            "Developed custom AI models using vector databases, transfer learning, and semi-supervised clustering, reducing dependency on paid LLMs like ChatGPT and Claude.",
+            "Worked in the CDP team on GCPlatform, developing enterprise AI services and integrating intelligent content processing pipelines.",
+            "Developed modular Java REST APIs using the Factory Design Pattern while optimizing backend performance and database queries."
         ],
         certLink: "https://drive.google.com/file/d/14yQRqn3L5WUDtEe5HhZ2WVQQWmbEaSnc/view?usp=drive_link",
         companyLink: "#"
     }
-];
-
-const skillsData = [
+]; const skillsData = [
     {
         category: "Languages",
         items: [
@@ -38,43 +34,46 @@ const skillsData = [
         ]
     },
     {
-        category: "AI/ML",
+        category: "AI & GenAI",
         items: [
-            { name: "Scikit-learn", color: "green" },
+            { name: "LLMs", color: "purple" },
+            { name: "RAG", color: "green" },
+            { name: "Transfer Learning", color: "orange" },
+            { name: "Vector Databases", color: "blue" },
             { name: "TensorFlow", color: "orange" },
-            { name: "PyTorch", color: "red" },
-            { name: "Pandas", color: "blue" },
-            { name: "NumPy", color: "indigo" }
+            { name: "Scikit-learn", color: "green" }
         ]
     },
     {
         category: "Backend",
         items: [
             { name: "Spring Boot", color: "green" },
-            { name: "Flask", color: "blue" },
             { name: "FastAPI", color: "teal" },
-            { name: "REST API", color: "purple" }
+            { name: "REST APIs", color: "purple" },
+            { name: "Kafka", color: "orange" },
+            { name: "Redis", color: "red" },
+            { name: "Factory Pattern", color: "indigo" }
         ]
     },
     {
-        category: "Database",
+        category: "Databases",
         items: [
             { name: "MongoDB", color: "green" },
-            { name: "MySQL", color: "blue" }
+            { name: "MySQL", color: "blue" },
+            { name: "Milvus Vector DB", color: "dark blue" },
+            { name: "BigQuery", color: "indigo" },
         ]
     },
     {
-        category: "Tools",
+        category: "Cloud & Tools",
         items: [
+            { name: "Google Cloud", color: "blue" },
             { name: "Git", color: "red" },
             { name: "GitHub", color: "gray" },
-            { name: "VS Code", color: "blue" },
             { name: "Postman", color: "orange" },
-            { name: "Docker", color: "blue" }
         ]
     }
 ];
-
 const projectsData = [
     {
         title: "AI Support Chatbot",
