@@ -337,7 +337,7 @@ main {
   border-radius: 8px;
   border: 1px solid var(--glow-color);
   box-shadow:
-    0 0 6px var(--glow-color),
+    0 0 3px var(--glow-color),
     0 0 1px hsla(35, 94%, 56%, 0.35);
 }
 
